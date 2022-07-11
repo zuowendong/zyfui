@@ -11,8 +11,8 @@ export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, "src/index.ts"),
-            name: "zzooui",
-            fileName: (format) => `zzooui.${format}.js`,
+            name: "zyfui",
+            fileName: (format) => `zyfui.${format}.js`,
         },
         rollupOptions: {
             external: ["vue"],
