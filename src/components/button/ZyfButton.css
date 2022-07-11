@@ -1,7 +1,45 @@
-@import "../../style/base/inset.css";
+@import "@/style/base/inset.css";
+@import "@/style/base/method.css";
 
-.custom-button {
+.cyberpunk-button {
+    --path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        90% 100%,
+        90% 84%,
+        72% 84%,
+        72% 100%,
+        15% 100%,
+        0 75%
+    );
+
+    --border-width: rem(-4px);
+
     @mixin inset-button;
     padding: rem(20px 26px);
-    color: red;
+    background-color: var(--red);
+    /* background: linear-gradient(222deg, red 90%, transparent 10%); */
+    clip-path: var(--path);
+    position: relative;
+    font-size: rem(20px);
+    color: var(--white);
+    letter-spacing: var(--small);
+}
+
+.cyberpunk-button::before {
+    @mixin absolute;
+    z-index: -1;
+    background-color: var(--red);
+    transform: translate(var(--border-width));
+}
+
+.cyberpunk-button::after {
+    @mixin absolute;
+    z-index: -2;
+    background-color: var(--blue);
+}
+
+.cyberpunk-button_glitch::before {
+    content: "划动文字";
 }

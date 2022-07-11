@@ -1,7 +1,7 @@
-import { createZOUI } from "./../index";
+import { createZyfUI } from "./../index";
 import { createApp } from "vue";
 import App from "./App.vue";
 
 import { components } from "../index";
 
-createApp(App).use(createZOUI()).mount("#app");
+createApp(App).use(createZyfUI()).mount("#app");

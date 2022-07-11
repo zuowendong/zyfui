@@ -7,10 +7,9 @@ import "./ZyfButton.css";
 </script>
 
 <template>
-    <div>
-        <button class="custom-button">
-            <slot />
-        </button>
-    </div>
+    <button class="cyberpunk-button">
+        按钮本体
+        <!-- <span class="cyberpunk-button_glitch" />
+        <span class="cyberpunk-button_tag">标签</span> -->
+    </button>
 </template>
- 

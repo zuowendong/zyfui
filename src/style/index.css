@@ -1,1 +1,3 @@
-@import './base/inset.css'
+@import "./base/inset.css";
+@import "./theme/color.css";
+@import "./theme/size.css";
