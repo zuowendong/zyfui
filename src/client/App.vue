@@ -1,5 +1,8 @@
 <template>
-    <zyf-button>Hello world</zyf-button>
+    <zyf-button>
+        Hello world
+        <template #tag>tag</template>
+    </zyf-button>
 </template>
 
 <script setup lang="ts"></script>

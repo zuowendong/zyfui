@@ -6,3 +6,8 @@
     bottom: 0;
     right: 0;
 }
+@define-mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
