@@ -1,0 +1,7 @@
+@import "../../style/base/inset.css";
+
+.custom-button {
+    @mixin inset-button;
+    padding: rem(20px 26px);
+    color: red;
+}
