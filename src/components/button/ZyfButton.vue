@@ -4,12 +4,17 @@ export default { name: "ZyfButton" };
 
 <script setup lang="ts">
 import "./ZyfButton.css";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const zyfButton = ref<HTMLButtonElement>();
-const setProperty = (key: string, value: any) => {
+const setProperty = (key: ZyfButtonProperty, value: any) => {
     zyfButton.value?.style.setProperty(key, value);
 };
+
+onMounted(() => {
+    setProperty('--bg', 's')
+})
+
 defineExpose({
     setProperty,
 });
