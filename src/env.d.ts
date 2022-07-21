@@ -8,3 +8,6 @@ declare module '*.vue' {
 }
 
 declare type ZyfButtonProperty = '--bg' | '--glitch-text'
+declare interface ZyfButtonFunc {
+  setProperty: (key: ZyfButtonProperty, value: any) => void;
+}

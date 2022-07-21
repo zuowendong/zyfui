@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { onMounted, ref } from "vue";
+
+const button = ref<ZyfButtonFunc>();
+onMounted(() => {
+    button.value?.setProperty('--bg', 'red')
+});
+</script>
+
 <template>
     <zyf-button ref="button">
         Hello world
@@ -10,15 +19,6 @@
         />
     </div>
 </template>
-
-<script setup lang="ts">
-import { onMounted, ref } from "vue";
-
-const button = ref();
-onMounted(() => {
-    button.value.setProperty("--bg", "#ccc");
-});
-</script>
 
 <style scoped>
 .textWrap {

@@ -7,13 +7,13 @@ import "./ZyfButton.css";
 import { onMounted, ref } from "vue";
 
 const zyfButton = ref<HTMLButtonElement>();
-const setProperty = (key: ZyfButtonProperty, value: any) => {
+const setProperty: ZyfButtonFunc['setProperty'] = (key: ZyfButtonProperty, value: any) => {
     zyfButton.value?.style.setProperty(key, value);
 };
 
-onMounted(() => {
-    setProperty('--bg', 's')
-})
+// onMounted(() => {
+//     setProperty('--bg', 's')
+// })
 
 defineExpose({
     setProperty,
