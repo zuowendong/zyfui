@@ -2,8 +2,13 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import * as path from "path";
+
+// postcss
 import postcssMixins from "postcss-mixins";
 import postcssRem from "postcss-rem";
+
+// rollup
+import Delete from "rollup-plugin-delete";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,6 +26,12 @@ export default defineConfig({
                     vue: "Vue",
                 },
             },
+            plugins: [
+                Delete({
+                    targets: ["dist/*.{ico,txt}"],
+                    hook: "generateBundle",
+                }),
+            ],
         },
     },
     css: {
@@ -36,5 +47,4 @@ export default defineConfig({
     test: {
         environment: "happy-dom",
     },
-    
 });
