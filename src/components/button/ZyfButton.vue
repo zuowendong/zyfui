@@ -11,10 +11,6 @@ const setProperty: ZyfButtonFunc['setProperty'] = (key: ZyfButtonProperty, value
     zyfButton.value?.style.setProperty(key, value);
 };
 
-// onMounted(() => {
-//     setProperty('--bg', 's')
-// })
-
 defineExpose({
     setProperty,
 });
@@ -32,7 +28,6 @@ defineExpose({
 
 <style scoped>
 .cyberpunk-button {
-    /* --bg: v-bind(bgColor); */
     --bg: var(--red);
     --glitch-text: "Hello";
 }

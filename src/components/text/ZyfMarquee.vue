@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 export default { name: "ZyfMarquee" };
 </script>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref, nextTick, toRefs, onBeforeUnmount } from "vue";
 
 const props = defineProps({
@@ -47,7 +47,7 @@ const isOverflow = () => {
 };
 
 // 获取元素宽度
-const getWidth = (el) => {
+const getWidth = (el: any) => {
     let { width } = el.getBoundingClientRect();
     return width;
 };
@@ -63,7 +63,7 @@ const hanldeView = () => {
 </script>
 
 <template>
-    <div class="scrollWrap" ref="outer" @mouseover="handleMouseover">
+    <div class="scrollWrap" ref="outer">
         <div
             :class="['st-inner', needToScroll ? 'st-scrolling' : '']"
             @click="hanldeView"

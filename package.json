@@ -1,6 +1,6 @@
 {
   "name": "zyfui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
@@ -26,5 +26,16 @@
     "vite": "^2.9.9",
     "vitest": "^0.18.0",
     "vue-tsc": "^0.34.7"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/zyfui.umd.js",
+  "module": "dist/zyfui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/zyfui.es.js",
+      "require": "./dist/zyfui.umd.js"
+    }
   }
 }
