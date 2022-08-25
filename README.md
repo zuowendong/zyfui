@@ -1,13 +1,25 @@
-# Vue 3 + TypeScript + Vite + vitest + vuePress2
+```shell
+pnpm init vite
 
-### vite
+pnpm i
+```
 
-构建工具
+vite.config.ts中
+安装node类型申明
 
-### vitest
+```shell
+pnpm i @types/node -D
+```
 
-单元测试
+vite打包使用库模式
+> <https://vitejs.cn/guide/build.html#library-mode>
 
-### vuePress2
+```js
+import * as path from 'node
 
-组件文档
+build: {
+  lib: {
+    entry: path.resolve(__dirname, "src/index.ts")
+  }
+}
+```

@@ -102,7 +102,7 @@ const hanldeView = () => {
 
 /* 向左匀速滚动动画 */
 .st-scrolling {
-    animation: scroll 33s linear infinite;
+    animation: scroll 10s linear infinite;
 }
 
 @keyframes scroll {
