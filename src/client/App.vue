@@ -32,7 +32,7 @@ let tableFilterList = ref([
 			{ name: "待审核", id: "待审核" },
 		],
 	},
-	{ type: "input", label: "企业名称：", field: "enterpriseName", inputModel: "" },
+	{ type: "numberRange", label: "年龄区间", field: "enterpriseName", selectModel: "" },
 	{
 		type: "select",
 		label: "企业状态：",

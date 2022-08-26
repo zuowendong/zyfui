@@ -3,6 +3,8 @@ export default { name: "ZyfTable" };
 </script>
 
 <script setup>
+import ZyfNumberRange from "../ZyfNumberRange/ZyfNumberRange.vue";
+
 const props = defineProps({
 	tableFilter: {
 		type: Array,
@@ -26,12 +28,7 @@ let { tableFilter } = toRefs(props);
 						:disabled="item.disabled"
 						style="width: 100%"
 					/>
-					<el-select
-						v-if="item.type === 'select'"
-						v-model="item.selectModel"
-						placeholder="请选择"
-						style="width: 100%"
-					>
+					<el-select v-if="item.type === 'select'" v-model="item.selectModel" placeholder="请选择" style="width: 100%">
 						<el-option
 							v-for="option in item.options"
 							:key="option.id"
@@ -67,27 +64,15 @@ let { tableFilter } = toRefs(props);
 					/>
 
 					<!-- 数字范围选择 -->
-					<!-- <zyf-number-range
-						v-if="item.type === 'numberRange'"
-						v-model="item.selectModel"
-						style="width: 100%"
-					/> -->
+					<zyf-number-range v-if="item.type === 'numberRange'" v-model="item.selectModel" style="width: 100%" />
 
 					<div class="opButtonsWrap">
 						<template v-for="(btnItem, btnIndex) in item.opButtons" :key="btnIndex">
-							<el-button
-								v-if="btnItem.type === 'searchButton'"
-								type="primary"
-								@click="btnItem.click(tableFilter)"
-							>
+							<el-button v-if="btnItem.type === 'searchButton'" type="primary" @click="btnItem.click(tableFilter)">
 								<el-icon><i-ep-search /></el-icon>
 								{{ btnItem.name }}
 							</el-button>
-							<el-button
-								v-if="btnItem.type === 'refreshButton'"
-								type="warning"
-								@click="btnItem.click(tableFilter)"
-							>
+							<el-button v-if="btnItem.type === 'refreshButton'" type="warning" @click="btnItem.click(tableFilter)">
 								<el-icon><i-ep-refresh /></el-icon>
 								{{ btnItem.name }}</el-button
 							>

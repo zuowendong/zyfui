@@ -31,6 +31,7 @@ declare module '@vue/runtime-core' {
     TableFilter: typeof import('./components/ZyfTable/TableFilter.vue')['default']
     ZyfButton: typeof import('./components/button/ZyfButton.vue')['default']
     ZyfMarquee: typeof import('./components/ZyfMarquee/ZyfMarquee.vue')['default']
+    ZyfNumberRange: typeof import('./components/ZyfNumberRange/ZyfNumberRange.vue')['default']
     ZyfTable: typeof import('./components/ZyfTable/ZyfTable.vue')['default']
   }
 }
