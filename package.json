@@ -11,9 +11,12 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.9",
+    "element-plus": "^2.2.14",
     "vue": "^3.2.25"
   },
   "devDependencies": {
+    "@iconify-json/ep": "^1.1.7",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.0.3",
     "@vitejs/plugin-vue": "^2.3.3",
@@ -26,7 +29,12 @@
     "postcss-mixins": "^9.0.3",
     "postcss-rem": "^2.0.2",
     "rollup-plugin-delete": "^2.0.0",
+    "sass": "^1.54.5",
+    "sass-loader": "^13.0.2",
     "typescript": "^4.5.4",
+    "unplugin-auto-import": "^0.11.2",
+    "unplugin-icons": "^0.14.8",
+    "unplugin-vue-components": "^0.22.4",
     "vite": "^2.9.9",
     "vite-plugin-dts": "^1.4.0",
     "vitest": "^0.18.0",

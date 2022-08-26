@@ -2,20 +2,19 @@
 
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import * as path from "path";
-
-// vite
 import dts from "vite-plugin-dts";
-
-// postcss
 import postcssMixins from "postcss-mixins";
 import postcssRem from "postcss-rem";
-
-// rollup
 import Delete from "rollup-plugin-delete";
-
-// vitest
 import { vitestConfig } from "./vitestConfig";
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+import * as path from "path";
+
+const pathSrc = path.resolve(__dirname, "src");
 
 export default defineConfig({
 	plugins: [
@@ -25,6 +24,28 @@ export default defineConfig({
 			insertTypesEntry: true,
 		}),
 		vue(),
+		AutoImport({
+			imports: ["vue"],
+			resolvers: [
+				ElementPlusResolver(),
+				IconsResolver({
+					prefix: "Icon",
+				}),
+			],
+			dts: path.resolve(pathSrc, "auto-imports.d.ts"),
+		}),
+		Components({
+			resolvers: [
+				IconsResolver({
+					enabledCollections: ["ep"]
+				}),
+				ElementPlusResolver(),
+			],
+			dts: path.resolve(pathSrc, "components.d.ts"),
+		}),
+		Icons({
+			autoInstall: true,
+		}),
 	],
 	build: {
 		lib: {
@@ -51,10 +72,18 @@ export default defineConfig({
 		postcss: {
 			plugins: [postcssMixins, postcssRem],
 		},
+		preprocessorOptions: {
+			less: {
+				javascriptEnabled: true,
+			},
+			scss: {
+				charset: false,
+			},
+		},
 	},
 	resolve: {
 		alias: {
-			"@": path.resolve(__dirname, "src"),
+			"@": pathSrc,
 		},
 	},
 	test: {
