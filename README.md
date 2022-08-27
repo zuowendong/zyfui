@@ -1,25 +1,7 @@
-```shell
-pnpm init vite
+# Vue 3 + Vite
 
-pnpm i
-```
+This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-vite.config.ts中
-安装node类型申明
+## Recommended IDE Setup
 
-```shell
-pnpm i @types/node -D
-```
-
-vite打包使用库模式
-> <https://vitejs.cn/guide/build.html#library-mode>
-
-```js
-import * as path from 'node
-
-build: {
-  lib: {
-    entry: path.resolve(__dirname, "src/index.ts")
-  }
-}
-```
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)

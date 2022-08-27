@@ -22,8 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-coverage
-.vscode
-/docs/.vitepress/dist
-/docs/.vitepress/.temp
