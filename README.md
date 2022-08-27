@@ -1,7 +1,63 @@
-# Vue 3 + Vite
+# zyf UI
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 安装
 
-## Recommended IDE Setup
+```shell
+npm install zyfui
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+# or
+
+yarn add zyfui
+
+# or
+
+pnpm install zyfui
+```
+
+## 快速入手
+
+main.js 中
+
+```js
+import { createApp } from "vue";
+import App from "./App.vue";
+import { createZyfUI } from "zyfui";
+
+createApp(App).use(createZyfUI()).mount("#app");
+```
+
+## 开发
+
+**新建**
+
+src -> components -> 新建组件文件 ( 例：zyf-text -> ZyfText.vue )
+
+**注册**
+
+components -> index.js
+
+```js
+export { default as ZyfText } from "./zyf-text/ZyfText.vue";
+```
+
+## 测试
+
+本地全局安装 `verdaccio`
+
+```shell
+pnpm i verdaccio -g
+```
+
+登录 `verdaccio` 上传项目
+
+```shell
+pnpm login --registry=http://localhost:4873
+
+npm publish --registry=http://localhost:4873
+```
+
+另开一个项目，本地安装zyfui
+
+```shell
+pnpm i zyfui --registry=http://localhost:4873
+```
