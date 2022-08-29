@@ -101,6 +101,7 @@ const setPrecisionValue = (value) => {
 	<div class="numberRangeMain" :class="{ 'is-disabled': disabled }">
 		<div class="from">
 			<el-input
+				data-cy="inputFrom"
 				ref="input_from"
 				v-model="userInputForm"
 				:disabled="disabled"
