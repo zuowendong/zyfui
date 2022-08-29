@@ -1,57 +1,111 @@
 <script setup>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
-const mockData = [{ xid: 1111, name: "jack" }];
-let tableFilterList = ref([
-	{ type: "input", label: "企业名称：", field: "enterpriseName", inputModel: "" },
+const mockData = [
+	{ xid: 1, info: { name: "jack", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 2, info: { name: "lucy", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 3, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 4, info: { name: "jack", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 5, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 6, info: { name: "lucy", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 7, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 8, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 9, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 10, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 11, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 12, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 13, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 14, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 15, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 16, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 17, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 18, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 19, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 20, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 21, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+	{ xid: 22, info: { name: "tom", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
+];
+
+const formatFetch = (tableData) => {
+	return tableData.map((item) => {
+		return {
+			...item,
+			...item.info,
+		};
+	});
+};
+
+let tableFilterList = reactive([
+	{ type: "input", label: "姓名", field: "name", inputModel: "" },
+	{ type: "numberRange", label: "年龄区间", field: "age", selectModel: "" },
 	{
 		type: "select",
-		label: "企业状态：",
-		field: "enterpriseState",
+		label: "地址",
+		field: "address",
 		selectModel: "",
 		options: [
 			{ name: "全部", id: "" },
-			{ name: "已审核", id: "已审核" },
-			{ name: "待审核", id: "待审核" },
+			{ name: "苏州", id: "苏州" },
+			{ name: "南京", id: "南京" },
+			{ name: "上海", id: "上海" },
 		],
 	},
-	{ type: "input", label: "企业名称：", field: "enterpriseName", inputModel: "" },
-	{
-		type: "select",
-		label: "企业状态：",
-		field: "enterpriseState",
-		selectModel: "",
-		options: [
-			{ name: "全部", id: "" },
-			{ name: "已审核", id: "已审核" },
-			{ name: "待审核", id: "待审核" },
-		],
-	},
-	{ type: "numberRange", label: "年龄区间", field: "enterpriseName", selectModel: "" },
-	{
-		type: "select",
-		label: "企业状态：",
-		field: "enterpriseState",
-		selectModel: "",
-		options: [
-			{ name: "全部", id: "" },
-			{ name: "已审核", id: "已审核" },
-			{ name: "待审核", id: "待审核" },
-		],
-	},
-	{ type: "input", label: "企业名称：", field: "enterpriseName", inputModel: "" },
-	{
-		type: "select",
-		label: "企业状态：",
-		field: "enterpriseState",
-		selectModel: "",
-		options: [
-			{ name: "全部", id: "" },
-			{ name: "已审核", id: "已审核" },
-			{ name: "待审核", id: "待审核" },
-		],
-	},
+	{ type: "input", label: "邮箱", field: "email", inputModel: "" },
 ]);
+
+const tableLayer = [
+	{
+		label: "序号",
+		key: "xid",
+		style: {
+			width: 60,
+			align: "center",
+		},
+	},
+	{
+		label: "姓名",
+		key: "name",
+		style: {
+			width: 120,
+		},
+	},
+	{
+		label: "年龄",
+		key: "age",
+		style: {
+			width: 80,
+		},
+	},
+	{
+		label: "地址",
+		key: "address",
+		style: {
+			minWidth: 150,
+			align: "center",
+		},
+	},
+	{
+		label: "邮箱",
+		key: "email",
+		style: {
+			minWidth: 100,
+		},
+	},
+	{
+		label: "操作",
+		key: "查看",
+		style: {
+			width: 100,
+		},
+		event: (data) => {
+			viewHandle(data);
+		},
+	},
+];
+
+const viewHandle = (rowData) => {
+	console.log("App.vue", rowData);
+};
 </script>
 
 <template>
@@ -60,21 +114,12 @@ let tableFilterList = ref([
 			<h3>消息公告无缝轮播组件</h3>
 			<zyf-marquee text="滚动文本滚动文本滚动文本滚动文本滚动文本~" />
 		</div>
-		<zyf-table :fetch="mockData" :tableFilter="tableFilterList">
+		<zyf-table :fetch="mockData" :tableFilter="tableFilterList" :tableLayer="tableLayer" :formatFetchData="formatFetch">
 			<template #btn>
 				<el-button type="primary" plain>
 					<el-icon><i-ep-plus /></el-icon>添加
 				</el-button>
 			</template>
-			<el-table-column prop="xid" label="序号" width="60" />
-			<el-table-column prop="name" label="姓名" min-width="100" />
-			<el-table-column prop="xid" label="年龄" width="100" />
-			<el-table-column prop="xid" label="地址" min-width="200" />
-			<el-table-column label="操作" width="100">
-				<template #default="{ row }">
-					<el-button link type="primary" size="small" @click="handleView(row)">查看</el-button>
-				</template>
-			</el-table-column>
 		</zyf-table>
 	</div>
 </template>

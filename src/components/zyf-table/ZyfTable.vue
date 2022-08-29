@@ -22,6 +22,16 @@ const props = defineProps({
 			return {};
 		},
 	},
+	formatFetchData: {
+		type: Function,
+		default: () => {},
+	},
+	tableLayer: {
+		type: Array,
+		default: () => {
+			return [];
+		},
+	},
 	tableFilter: {
 		type: [Function, Array],
 		default: () => {
@@ -32,11 +42,10 @@ const props = defineProps({
 	showFooter: { type: Boolean, default: true },
 });
 
-let { fetch, fetchParams, tableFilter, showTableIdx, showFooter } = toRefs(props);
-const emit = defineEmits("filter-change");
+let { fetch, fetchParams, formatFetchData, tableLayer, tableFilter, showTableIdx, showFooter } = toRefs(props);
 
 /**
- * alias为数组格式
+ * alias为数组格式的情况判断
  */
 const arrAlias = () => {
 	let arr = [];
@@ -104,8 +113,7 @@ const getFilterData = async () => {
 					name: "查询",
 					click: (filterList) => {
 						filterHandle(filterList);
-						loadData();
-						emit("filter-change", filterList);
+						getTableData();
 					},
 				},
 				{
@@ -113,8 +121,7 @@ const getFilterData = async () => {
 					name: "重置",
 					click: (filterList) => {
 						refreshHandle(filterList);
-						loadData();
-						emit("filter-change", filterList);
+						getTableData();
 					},
 				},
 			],
@@ -155,10 +162,13 @@ let tableData = ref([]);
 let pageSize = ref(10);
 let pageNum = ref(1);
 let total = ref(0);
-const getTabelData = async () => {
+const getTableData = async () => {
 	// API
 	if (Object.prototype.toString.call(fetch.value) === "[object Function]") {
-		let baseData = { pageSize: pageSize.value, page: pageNum.value };
+		let baseData = {
+			pageSize: showFooter.value ? pageSize.value : 9999,
+			page: pageNum.value,
+		};
 		let res = await fetch.value({
 			...baseData,
 			...filterModels.value,
@@ -181,23 +191,27 @@ const getTabelData = async () => {
 		}
 	} else if (Array.isArray(fetch.value)) {
 		// mockData
-		tableData.value = fetch.value;
+		tableData.value = fetch.value.slice((pageNum.value - 1) * pageSize.value, pageNum.value * pageSize.value);
 		total.value = fetch.value.length;
 	}
+	if (formatFetchData.value && tableData.value.length) {
+		tableData.value = [...formatFetchData.value(tableData.value)];
+	}
 };
+defineExpose({ getTableData, tableData });
 
 let originTableFilter = ref([]);
 onMounted(() => {
 	getFilterData();
 	filterHandle(tableFilter.value);
 	originTableFilter.value = cloneDeep(tableFilter.value);
-	getTabelData();
+	getTableData();
 });
 
 watch(
 	() => props.fetch,
 	() => {
-		getTabelData();
+		getTableData();
 	},
 	{ deep: true }
 );
@@ -217,14 +231,30 @@ const refreshHandle = (filterList) => {
 // 分页
 const pageNumChangeHandle = (val) => {
 	pageNum.value = val;
-	getTabelData();
+	getTableData();
 };
 const pageSizeChangeHandle = (val) => {
 	pageSize.value = val;
-	getTabelData();
+	getTableData();
 };
 
-defineExpose({ getTabelData, tableData });
+/**
+ * 列表单项宽度
+ */
+const getColumnWidth = (style) => {
+	let widthObj = { width: null, minWidth: null };
+	if (style) {
+		if (style.width && !style.minWidth) {
+			widthObj = { width: style.width, minWidth: null };
+		}
+		if (!style.width && style.minWidth) {
+			widthObj = { width: null, minWidth: style.minWidth };
+		}
+	} else {
+		widthObj = { width: null, minWidth: 100 };
+	}
+	return widthObj;
+};
 </script>
 
 <template>
@@ -241,7 +271,26 @@ defineExpose({ getTabelData, tableData });
 							<span>{{ $index + 1 + (pageNum - 1) * pageSize }}</span>
 						</template>
 					</el-table-column>
-					<slot />
+
+					<template v-if="tableLayer">
+						<el-table-column
+							v-for="(item, index) in tableLayer"
+							:key="index"
+							:label="item.label"
+							:width="getColumnWidth(item.style).width"
+							:min-width="getColumnWidth(item.style).minWidth"
+							:align="item.style.align || 'left'"
+						>
+							<template #default="{ row }">
+								<el-button link type="primary" v-if="item.event" @click="item.event(row)">{{
+									row[item.key] || item.key
+								}}</el-button>
+								<span v-else> {{ row[item.key] }}</span>
+							</template>
+						</el-table-column>
+					</template>
+
+					<slot v-else />
 					<template #empty>
 						<div class="no-data">
 							<div class="imgWrap">
