@@ -57,16 +57,16 @@ export default defineConfig({
 			],
 		},
 	},
-	css: {
-		preprocessorOptions: {
-			less: {
-				javascriptEnabled: true,
-			},
-			scss: {
-				charset: false,
-			},
-		},
-	},
+	// css: {
+	// 	preprocessorOptions: {
+	// 		less: {
+	// 			javascriptEnabled: true,
+	// 		},
+	// 		scss: {
+	// 			charset: false,
+	// 		},
+	// 	},
+	// },
 	resolve: {
 		alias: {
 			"@": pathSrc,

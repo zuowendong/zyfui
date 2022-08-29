@@ -111,7 +111,7 @@ const viewHandle = (rowData) => {
 <template>
 	<div class="main">
 		<div class="textWrap">
-			<h3>消息公告无缝轮播组件</h3>
+			<h3 class="text">消息公告无缝轮播组件</h3>
 			<zyf-marquee text="滚动文本滚动文本滚动文本滚动文本滚动文本~" />
 		</div>
 		<zyf-table :fetch="mockData" :tableFilter="tableFilterList" :tableLayer="tableLayer" :formatFetchData="formatFetch">
@@ -124,12 +124,15 @@ const viewHandle = (rowData) => {
 	</div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .main {
 	background-color: #eff3f9;
 }
 .textWrap {
 	width: 200px;
 	margin: 100px auto;
+	.text {
+		color: red;
+	}
 }
 </style>
