@@ -1,9 +1,10 @@
 import { defineUserConfig, defaultTheme } from "vuepress";
 
 export default defineUserConfig({
+	base: '/zyfui/',
 	lang: "zh-CN",
 	title: "zyf UI",
-	description: "这是我的第一个 VuePress 站点",
+	description: "zyfui 官方文档",
 
 	theme: defaultTheme({
 		// 默认主题配置

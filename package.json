@@ -7,8 +7,8 @@
     "preview": "vite preview",
     "test": "cypress open",
     "coverage": "vitest run --coverage",
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs-dev": "vuepress dev docs",
+    "docs-build": "vuepress build docs"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.9",
