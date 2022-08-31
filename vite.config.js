@@ -13,6 +13,7 @@ import * as path from "path";
 const pathSrc = path.resolve(__dirname, "src");
 
 export default defineConfig({
+	base: "./",
 	plugins: [
 		vue(),
 		AutoImport({
