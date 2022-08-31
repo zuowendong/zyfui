@@ -9,16 +9,18 @@ npm install zyfui
 
 yarn add zyfui
 
-# or
+# or (推荐)
 
 pnpm install zyfui
 ```
 
 ## 快速入手
 
-main.js 中
+main.js
 
 ```js
+import 'zyfui/dist/style.css'
+
 import { createApp } from "vue";
 import App from "./App.vue";
 import { createZyfUI } from "zyfui";
@@ -39,6 +41,9 @@ components -> index.js
 ```js
 export { default as ZyfText } from "./zyf-text/ZyfText.vue";
 ```
+
+**组件文档**
+> <https://zuowendong.github.io/zyfui/>
 
 ## 组件测试
 
