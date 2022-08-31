@@ -40,7 +40,19 @@ components -> index.js
 export { default as ZyfText } from "./zyf-text/ZyfText.vue";
 ```
 
-## 测试
+## 组件测试
+
+基于cypress组件级测试
+
+运行指令
+
+```shell
+pnpm test
+```
+
+新建组件测试用例 `*.cy.js`
+
+## 部署测试
 
 本地全局安装 `verdaccio`
 
