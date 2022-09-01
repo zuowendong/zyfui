@@ -45,5 +45,21 @@
       "require": "./dist/zyfui.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
+  },
+  "description": "zyf business component library",
+  "author": {
+    "name": "zuowendong"
+  },
+  "keywords": [
+    "vue",
+    "zyf",
+    "element",
+    "js",
+    "ui"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Zuowendong/zyfui.git"
   }
 }

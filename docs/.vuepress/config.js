@@ -1,13 +1,19 @@
 import { defineUserConfig, defaultTheme } from "vuepress";
 
 export default defineUserConfig({
-	base: '/zyfui/',
+	base: "/zyfui/",
 	lang: "zh-CN",
 	title: "zyf UI",
 	description: "zyfui 官方文档",
 
 	theme: defaultTheme({
-		// 默认主题配置
+		logo: "/images/logo.png",
+		logoDark: null,
+		repoLabel: '代码地址',
+		repo: "https://github.com/Zuowendong/zyfui",
+		contributors: true,
+		contributorsText: 'author',
+
 		navbar: [
 			{
 				text: "首页",

@@ -32,6 +32,8 @@ npm install zyfui
 main.js 中
 
 ```js
+import 'zyfui/dist/style.css'
+
 import { createApp } from "vue";
 import App from "./App.vue";
 import { createZyfUI } from "zyfui";
