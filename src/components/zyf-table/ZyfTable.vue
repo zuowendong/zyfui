@@ -22,14 +22,16 @@ const props = defineProps({
 			return {};
 		},
 	},
-	formatFetchData: {
-		type: Function,
-		default: () => {},
-	},
 	tableLayer: {
 		type: Array,
 		default: () => {
 			return [];
+		},
+	},
+	formatFetchData: {
+		type: Function,
+		default: (list) => {
+			return list.map((item) => item);
 		},
 	},
 	tableFilter: {
@@ -194,7 +196,7 @@ const getTableData = async () => {
 		tableData.value = fetch.value.slice((pageNum.value - 1) * pageSize.value, pageNum.value * pageSize.value);
 		total.value = fetch.value.length;
 	}
-	if (formatFetchData.value && tableData.value.length) {
+	if (tableLayer.value.length && tableData.value.length) {
 		tableData.value = [...formatFetchData.value(tableData.value)];
 	}
 };
@@ -272,7 +274,7 @@ const getColumnWidth = (style) => {
 						</template>
 					</el-table-column>
 
-					<template v-if="tableLayer">
+					<template v-if="tableLayer.length">
 						<el-table-column
 							v-for="(item, index) in tableLayer"
 							:key="index"
