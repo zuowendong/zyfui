@@ -9,6 +9,8 @@ export const pagesComponents = {
   "v-8daa1a0e": defineAsyncComponent(() => import(/* webpackChunkName: "v-8daa1a0e" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/index.html.vue")),
   // path: /compsMD/
   "v-9a1e2ca6": defineAsyncComponent(() => import(/* webpackChunkName: "v-9a1e2ca6" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/compsMD/index.html.vue")),
+  // path: /compsMD/zyfNumberRange.html
+  "v-e0f08b82": defineAsyncComponent(() => import(/* webpackChunkName: "v-e0f08b82" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/compsMD/zyfNumberRange.html.vue")),
   // path: /compsMD/zyfTable.html
   "v-652ef4b6": defineAsyncComponent(() => import(/* webpackChunkName: "v-652ef4b6" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/compsMD/zyfTable.html.vue")),
   // path: /404.html

@@ -1,18 +1,19 @@
 import { defineUserConfig, defaultTheme } from "vuepress";
+import { sidebar } from "./sidebarConfig";
 
 export default defineUserConfig({
 	base: "/zyfui/",
 	lang: "zh-CN",
 	title: "zyf UI",
 	description: "zyfui 官方文档",
+	head: [["link", { rel: "icon", href: "/images/logo-1.png" }]],
 
 	theme: defaultTheme({
-		logo: "/images/logo.png",
+		logo: "/images/logo-1.png",
 		logoDark: null,
-		repoLabel: '代码地址',
 		repo: "https://github.com/Zuowendong/zyfui",
 		contributors: true,
-		contributorsText: 'author',
+		contributorsText: "author",
 
 		navbar: [
 			{
@@ -25,18 +26,6 @@ export default defineUserConfig({
 			},
 		],
 
-		sidebar: [
-			{
-				title: "组件",
-				path: "/compsMD/",
-				collapsable: true,
-				children: [
-					{
-						text: "表格",
-						link: "/compsMD/zyfTable",
-					},
-				],
-			},
-		],
+		sidebar,
 	}),
 });

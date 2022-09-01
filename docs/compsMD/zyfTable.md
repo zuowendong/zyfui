@@ -1,6 +1,6 @@
-## zyf-table
+# zyf-table
 
-### 属性
+## 属性
 
 名称 | 说明 | 类型
 --- | :--- | :---
@@ -12,9 +12,9 @@ tableFilter | 头部筛选条件 | array
 showTableIdx | 是否开启字段计算序号 | boolean
 showFooter | 是否显示分页 | boolean
 
-### 示例
+## 示例
 
-#### 基本使用
+### 基本使用
 
 ```html
 <zyf-table :fetch="mockData" :tableFilter="tableFilterList">
@@ -81,7 +81,7 @@ let tableFilterList = reactive([
 ]);
 ```
 
-#### 使用表格布局渲染数据
+### 使用表格布局渲染数据
 
 ```html
 <zyf-table :fetch="mockData" :tableFilter="tableFilterList" :tableLayer="tableLayer" :formatFetchData="formatFetch">

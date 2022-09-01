@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: 
+heroImage: '/images/home.png'
 herpText: Zyf Ui
 tagline: 基于element plus 二次封装
 actions: 

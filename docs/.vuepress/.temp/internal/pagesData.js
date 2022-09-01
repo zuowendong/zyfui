@@ -7,6 +7,8 @@ export const pagesData = {
   "v-8daa1a0e": () => import(/* webpackChunkName: "v-8daa1a0e" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/index.html.js").then(({ data }) => data),
   // path: /compsMD/
   "v-9a1e2ca6": () => import(/* webpackChunkName: "v-9a1e2ca6" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/compsMD/index.html.js").then(({ data }) => data),
+  // path: /compsMD/zyfNumberRange.html
+  "v-e0f08b82": () => import(/* webpackChunkName: "v-e0f08b82" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/compsMD/zyfNumberRange.html.js").then(({ data }) => data),
   // path: /compsMD/zyfTable.html
   "v-652ef4b6": () => import(/* webpackChunkName: "v-652ef4b6" */"D:/Desktop/zyfui/docs/.vuepress/.temp/pages/compsMD/zyfTable.html.js").then(({ data }) => data),
   // path: /404.html
