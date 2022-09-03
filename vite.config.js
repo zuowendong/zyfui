@@ -1,13 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-
 import Delete from "rollup-plugin-delete";
-
-import Icons from "unplugin-icons/vite";
-import IconsResolver from "unplugin-icons/resolver";
 import AutoImport from "unplugin-auto-import/vite";
-import Components from "unplugin-vue-components/vite";
-import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import * as path from "path";
 
 const pathSrc = path.resolve(__dirname, "src");
@@ -18,24 +12,7 @@ export default defineConfig({
 		vue(),
 		AutoImport({
 			imports: ["vue"],
-			resolvers: [
-				ElementPlusResolver(),
-				IconsResolver({
-					prefix: "Icon",
-				}),
-			],
-		}),
-		Components({
-			resolvers: [
-				IconsResolver({
-					enabledCollections: ["ep"],
-				}),
-				ElementPlusResolver(),
-			],
-		}),
-		Icons({
-			autoInstall: true,
-		}),
+		})
 	],
 	build: {
 		lib: {
@@ -44,10 +21,11 @@ export default defineConfig({
 			fileName: (format) => `zyfui.${format}.js`,
 		},
 		rollupOptions: {
-			external: ["vue"],
+			external: ["vue", "element-plus"],
 			output: {
 				globals: {
 					vue: "Vue",
+					"element-plus": "elementPlus",
 				},
 			},
 			plugins: [

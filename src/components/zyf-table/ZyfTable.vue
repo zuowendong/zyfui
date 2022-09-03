@@ -3,10 +3,7 @@ export default { name: "ZyfTable" };
 </script>
 
 <script setup>
-import { ref, watch, toRefs, onMounted } from "vue";
 import { cloneDeep } from "lodash-es";
-import zhCn from "element-plus/es/locale/lang/zh-cn";
-
 import TableFilter from "./TableFilter.vue";
 
 const props = defineProps({
@@ -261,7 +258,7 @@ const getColumnWidth = (style) => {
 
 <template>
 	<div class="zyfTableMain">
-		<el-config-provider :locale="zhCn">
+		<!-- <el-config-provider :locale="zhCn"> -->
 			<table-filter v-if="tableFilter.length > 2" :table-filter="tableFilter" />
 			<div class="tableContainer">
 				<div class="buttonsWrap">
@@ -314,7 +311,7 @@ const getColumnWidth = (style) => {
 					/>
 				</div>
 			</div>
-		</el-config-provider>
+		<!-- </el-config-provider> -->
 	</div>
 </template>
 

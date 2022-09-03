@@ -1,5 +1,6 @@
 <script setup>
 import { reactive, ref } from "vue";
+import { ElButton } from "element-plus";
 
 const mockData = [
 	{ xid: 1, info: { name: "jack", age: 18, address: "苏州市姑苏区干将西路", email: "xxx@xxx.cn" } },
