@@ -15,6 +15,7 @@ export default defineConfig({
 		})
 	],
 	build: {
+		minify: 'terser',
 		lib: {
 			entry: path.resolve(__dirname, "src/index.js"),
 			name: "zyfui",
@@ -26,7 +27,7 @@ export default defineConfig({
 				globals: {
 					vue: "Vue",
 					"element-plus": "elementPlus",
-				},
+				}
 			},
 			plugins: [
 				Delete({
@@ -34,7 +35,7 @@ export default defineConfig({
 					hook: "generateBundle",
 				}),
 			],
-		},
+		}
 	},
 	resolve: {
 		alias: {

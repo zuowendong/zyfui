@@ -259,7 +259,7 @@ const getColumnWidth = (style) => {
 <template>
 	<div class="zyfTableMain">
 		<!-- <el-config-provider :locale="zhCn"> -->
-			<table-filter v-if="tableFilter.length > 2" :table-filter="tableFilter" />
+			<table-filter v-if="tableFilter.length > 1" :table-filter="tableFilter" />
 			<div class="tableContainer">
 				<div class="buttonsWrap">
 					<slot name="btn" />
