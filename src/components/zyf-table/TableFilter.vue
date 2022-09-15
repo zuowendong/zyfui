@@ -17,9 +17,9 @@ let { tableFilter } = toRefs(props);
 </script>
 
 <template>
-	<div class="tableFilterMain">
+	<div class="zyf-tableFilterMain">
 		<el-form :inline="true" class="table-filter">
-			<div class="tableFilterCon">
+			<div class="zyf-tableFilterCon">
 				<el-form-item v-for="(item, index) in tableFilter" :key="index" :label="item.label">
 					<el-input
 						v-if="item.type === 'input'"
@@ -84,31 +84,31 @@ let { tableFilter } = toRefs(props);
 	</div>
 </template>
 
-<style lang="scss" scoped>
-.tableFilterMain {
+<style lang="scss">
+.zyf-tableFilterMain {
 	background: #ffffff;
 	padding: 15px 22px 0;
 	margin-bottom: 4px;
 }
-.tableFilterCon {
+.zyf-tableFilterCon {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 }
 
 @media screen and (max-width: 1450px) {
-	.tableFilterCon {
+	.zyf-tableFilterCon {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 	}
 }
 @media screen and (max-width: 900px) {
-	.tableFilterCon {
+	.zyf-tableFilterCon {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
 @media screen and (max-width: 768px) {
-	.tableFilterCon {
+	.zyf-tableFilterCon {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 	}

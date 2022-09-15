@@ -63,12 +63,12 @@ const hanldeView = () => {
 </script>
 
 <template>
-	<div class="scrollWrap" ref="outer">
-		<div :class="['st-inner', needToScroll ? 'st-scrolling' : '']" @click="hanldeView">
-			<div class="st-section" ref="inner">
+	<div class="zyf-scrollWrap" ref="outer">
+		<div :class="['zyf-stInner', needToScroll ? 'zyf-stScrolling' : '']" @click="hanldeView">
+			<div class="zyf-stSection" ref="inner">
 				<div v-html="text" />
 			</div>
-			<div class="st-section" v-if="needToScroll">
+			<div class="zyf-stSection" v-if="needToScroll">
 				<div v-html="text" />
 			</div>
 			<!-- two div, 无缝衔接 -->
@@ -76,8 +76,8 @@ const hanldeView = () => {
 	</div>
 </template>
 
-<style scoped>
-.scrollWrap {
+<style lang="scss">
+.zyf-scrollWrap {
 	overflow: hidden;
 	white-space: nowrap;
 	height: 100%;
@@ -85,12 +85,12 @@ const hanldeView = () => {
 	align-items: center;
 	cursor: pointer;
 }
-.st-inner {
+.zyf-stInner {
 	height: 100%;
 	display: flex;
 	align-items: center;
 }
-.st-section {
+.zyf-stSection {
 	padding: 0 20px;
 	height: 100%;
 	display: flex;
@@ -98,11 +98,11 @@ const hanldeView = () => {
 }
 
 /* 向左匀速滚动动画 */
-.st-scrolling {
-	animation: scroll 10s linear infinite;
+.zyf-stScrolling {
+	animation: zyfScrollAnimation 10s linear infinite;
 }
 
-@keyframes scroll {
+@keyframes zyfScrollAnimation {
 	0% {
 		transform: translate3d(0%, 0, 0);
 	}

@@ -257,11 +257,11 @@ const getColumnWidth = (style) => {
 </script>
 
 <template>
-	<div class="zyfTableMain">
+	<div class="zyf-TableMain">
 		<!-- <el-config-provider :locale="zhCn"> -->
 			<table-filter v-if="tableFilter.length > 1" :table-filter="tableFilter" />
-			<div class="tableContainer">
-				<div class="buttonsWrap">
+			<div class="zyf-tableContainer">
+				<div class="zyf-buttonsWrap">
 					<slot name="btn" />
 				</div>
 				<el-table :data="tableData" header-cell-class-name="table-header-cell">
@@ -292,13 +292,13 @@ const getColumnWidth = (style) => {
 					<slot v-else />
 					<template #empty>
 						<div class="no-data">
-							<div class="imgWrap">
-								<div class="noDataText">暂无数据</div>
+							<div class="zyf-imgWrap">
+								<div class="zyf-noDataText">暂无数据</div>
 							</div>
 						</div>
 					</template>
 				</el-table>
-				<div class="footer" v-if="showFooter">
+				<div class="zyf-footer" v-if="showFooter">
 					<el-pagination
 						:current-page="pageNum"
 						:page-size="pageSize"
@@ -315,12 +315,12 @@ const getColumnWidth = (style) => {
 	</div>
 </template>
 
-<style lang="scss" scoped>
-.zyfTableMain {
+<style lang="scss">
+.zyf-TableMain {
 	padding: 20px;
-	.tableContainer {
+	.zyf-tableContainer {
 		background-color: #fff;
-		.buttonsWrap {
+		.zyf-buttonsWrap {
 			display: flex;
 			align-items: center;
 			margin: 10px 0 10px 10px;
@@ -339,16 +339,16 @@ const getColumnWidth = (style) => {
 	background-color: #fafcfe !important;
 	font-weight: 500 !important;
 }
-.footer {
+.zyf-footer {
 	display: flex;
 	justify-content: center;
 	margin-top: 20px;
 	padding-bottom: 6px;
 }
 
-.imgWrap {
+.zyf-imgWrap {
 	position: relative;
-	.noDataText {
+	.zyf-noDataText {
 		position: absolute;
 		top: 60%;
 		left: 50%;

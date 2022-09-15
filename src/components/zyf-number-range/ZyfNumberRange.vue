@@ -98,8 +98,8 @@ const setPrecisionValue = (value) => {
 </script>
 
 <template>
-	<div class="numberRangeMain" :class="{ 'is-disabled': disabled }">
-		<div class="from">
+	<div class="zyf-numberRangeMain" :class="{ 'zyf-isDisabled': disabled }">
+		<div class="zyf-from">
 			<el-input
 				data-cy="inputFrom"
 				ref="input_from"
@@ -109,10 +109,10 @@ const setPrecisionValue = (value) => {
 				@change="inputChangeFromHandle"
 			/>
 		</div>
-		<div class="center">
+		<div class="zyf-center">
 			<span>至</span>
 		</div>
-		<div class="to">
+		<div class="zyf-to">
 			<el-input
 				ref="input_to"
 				v-model="userInputTo"
@@ -124,17 +124,17 @@ const setPrecisionValue = (value) => {
 	</div>
 </template>
 
-<style lang="scss" scoped>
-.numberRangeMain {
+<style lang="scss">
+.zyf-numberRangeMain {
 	display: flex;
 	align-items: center;
 	background-color: #fff;
-	.center {
+	.zyf-center {
 		margin: 0 10px;
 	}
 }
-.from,
-.to {
+.zyf-from,
+.zyf-to {
 	:deep(.el-input .el-input__inner) {
 		width: 100px;
 		border: 0px;
@@ -143,7 +143,7 @@ const setPrecisionValue = (value) => {
 		background-color: transparent;
 	}
 }
-.is-disabled {
+.zyf-isDisabled {
 	background-color: #eef0f6;
 	border-color: #e4e7ed;
 	color: #c0c4cc;
