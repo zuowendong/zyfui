@@ -62,13 +62,15 @@ pnpm test
 本地全局安装 `verdaccio`
 
 ```shell
-pnpm i verdaccio -g
+npm i verdaccio -g
 ```
 
 登录 `verdaccio` 上传项目
 
 ```shell
-pnpm login --registry=http://localhost:4873
+npm adduser --registry=http://localhost:4873
+
+npm login --registry=http://localhost:4873
 
 npm publish --registry=http://localhost:4873
 ```
@@ -76,5 +78,5 @@ npm publish --registry=http://localhost:4873
 另开一个项目，本地安装zyfui
 
 ```shell
-pnpm i zyfui --registry=http://localhost:4873
+npm i zyfui --registry=http://localhost:4873
 ```
