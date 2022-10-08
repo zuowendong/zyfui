@@ -1,6 +1,0 @@
-<template><div><h1 id="组件" tabindex="-1"><a class="header-anchor" href="#组件" aria-hidden="true">#</a> 组件</h1>
-<p><RouterLink to="/compsMD/zyfTable.html">表格 zyf-table</RouterLink></p>
-<p><RouterLink to="/compsMD/zyfNumberRange.html">数字范围 zyf-number-range</RouterLink></p>
-</div></template>
-
-
