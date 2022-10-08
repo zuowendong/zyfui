@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "site": "pnpm -F site dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "packageManager": "pnpm@7.9.5",
