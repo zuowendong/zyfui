@@ -1,10 +1,10 @@
 
 import * as components from './components'
-import { App } from 'vue'
+import type { App } from 'vue'
 export * from './components'
 
 export default {
-    install: (app: App) => {
+    install(app: App) {
         for (const key in components) {
             const comp = components[key]
             if (comp.install) {
