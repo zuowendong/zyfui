@@ -2,21 +2,25 @@
   "name": "zyfui",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
-  "scripts": {
-    "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "files": [
     "lib",
     "es",
     "dist"
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@zyf/utils": "workspace:^",
+    "vue": "^3.2.40"
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.2",
     "@vitejs/plugin-vue-jsx": "^2.0.1",
@@ -25,9 +29,5 @@
     "vite": "^3.1.6",
     "vite-plugin-dts": "^1.6.5",
     "vitest": "^0.24.0"
-  },
-  "dependencies": {
-    "@zyf/utils": "workspace:^",
-    "vue": "^3.2.40"
   }
 }
