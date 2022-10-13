@@ -1,5 +1,5 @@
 module.exports = {
-    extends: [
-        '@mistjs/eslint-config-vue'
-    ]
+  extends: [
+    '@mistjs/eslint-config-vue',
+  ],
 }
