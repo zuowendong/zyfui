@@ -1,5 +1,4 @@
 import { defineComponent } from 'vue'
-import { isStr } from '@zyf/utils'
 
 export default defineComponent({
   name: 'ZyfButton',
