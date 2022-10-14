@@ -4,7 +4,7 @@ on:
     tags:
       - site*
 
-job:
+jobs:
   site:
     runs-on: ubuntu-latest
 
