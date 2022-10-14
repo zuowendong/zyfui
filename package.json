@@ -10,6 +10,7 @@
   "scripts": {
     "prepare": "husky install",
     "site": "pnpm -F site dev",
+    "site:build": "pnpm -F site build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
