@@ -12,7 +12,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild"
+    "build": "unbuild",
+    "test": "vitest"
   },
   "dependencies": {
     "vue": "^3.2.40"
