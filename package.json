@@ -9,6 +9,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
+    "example": "pnpm -F example dev",
     "site": "pnpm -F site dev",
     "site:build": "pnpm -F site build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +25,6 @@
     "typescript": "^4.8.4"
   },
   "lint-staged": {
-    "*.{ts,tsx,less,vue}": "eslint . --fix"
+    "*.{ts,tsx,vue}": "eslint . --fix"
   }
 }

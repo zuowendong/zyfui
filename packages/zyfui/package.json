@@ -15,16 +15,23 @@
   ],
   "scripts": {
     "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundleLess": "esno scripts/bundleLess.ts",
+    "bundleStyle": "vite build --config vite.config.style.ts"
   },
   "dependencies": {
     "@zyf/utils": "workspace:^",
     "vue": "^3.2.40"
   },
   "devDependencies": {
+    "@types/jsdom": "^20.0.0",
+    "@types/less": "^3.0.3",
+    "@types/node": "^16.11.56",
     "@vitejs/plugin-vue": "^3.1.2",
     "@vitejs/plugin-vue-jsx": "^2.0.1",
     "@vue/tsconfig": "^0.1.3",
+    "cpy": "^9.0.1",
+    "fast-glob": "^3.2.12",
+    "less": "^4.1.3",
     "typescript": "^4.8.4",
     "vite": "^3.1.6",
     "vite-plugin-dts": "^1.6.5",
