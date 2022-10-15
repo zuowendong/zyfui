@@ -1,10 +1,15 @@
 {
   "name": "zyfui",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "description": "zyf business component library",
+  "keywords": [
+    "vue",
+    "@zyf",
+    "element",
+    "ui"
+  ],
   "license": "ISC",
-  "author": "",
+  "author": "zuowendong",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
@@ -13,10 +18,17 @@
     "es",
     "dist"
   ],
+  "sideEffects": [
+    "es/**/style/**.less",
+    "lib/**/style/**.less",
+    "dist/**.css"
+  ],
   "scripts": {
-    "build": "vite build",
+    "build:comp": "vite build",
     "bundleLess": "esno scripts/bundleLess.ts",
-    "bundleStyle": "vite build --config vite.config.style.ts"
+    "bundleStyle": "vite build --config vite.config.style.ts",
+    "bundle": "vite build --config vite.config.bundle.ts",
+    "build": "run-s build:comp bundleLess bundleStyle bundle"
   },
   "dependencies": {
     "@zyf/utils": "workspace:^",
