@@ -1,0 +1,28 @@
+.tableFilterMain {
+	background: #ffffff;
+	padding: 15px 22px 0;
+	margin-bottom: 4px;
+}
+.tableFilterCon {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+}
+
+@media screen and (max-width: 1450px) {
+	.tableFilterCon {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+@media screen and (max-width: 900px) {
+	.tableFilterCon {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media screen and (max-width: 768px) {
+	.tableFilterCon {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

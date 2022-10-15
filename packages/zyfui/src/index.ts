@@ -7,7 +7,7 @@ export default {
   install(app: App) {
     // eslint-disable-next-line no-unreachable-loop
     for (const key in components) {
-      const comp = components[key]
+      const comp = (components as any)[key]
       if (comp.install)
         app.use(comp)
 
