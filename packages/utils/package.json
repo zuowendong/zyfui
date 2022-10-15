@@ -2,7 +2,9 @@
   "name": "@zyf/utils",
   "version": "0.0.1",
   "description": "",
-  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "@zyf"
   ],
