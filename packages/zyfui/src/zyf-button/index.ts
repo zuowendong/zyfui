@@ -1,5 +1,5 @@
 import type { App, Plugin } from 'vue'
-import ZyfButton from './ZyfButton'
+import ZyfButton from './Button.vue'
 
 ZyfButton.install = (app: App) => {
   app.component(ZyfButton.name, ZyfButton)
