@@ -1,7 +1,6 @@
 import { defineUserConfig, defaultTheme, viteBundler } from "vuepress";
 import { resolve } from "path";
 
-console.log(process.env)
 export default defineUserConfig({
     base: process.env.NODE_ENV === 'development' ? '/' : '/zyfui/',
 	lang: "zh-CN",

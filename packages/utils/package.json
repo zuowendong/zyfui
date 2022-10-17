@@ -1,6 +1,6 @@
 {
-  "name": "@zyf/utils",
-  "version": "1.0.0",
+  "name": "@zyfjs/utils",
+  "version": "0.0.1",
   "description": "",
   "publishConfig": {
     "access": "public"
