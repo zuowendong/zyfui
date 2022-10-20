@@ -4,19 +4,22 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
 import { isStr } from '@zyfjs/utils'
 
-const testStr = ref('')
-testStr.value = isStr('test') ? 'string' : 'noString'
-</script>
-<script lang="ts">
-export default {
-  name: 'ZyfText',
-}
+export default defineComponent({
+  name: 'VarButton',
+  setup() {
+    const testStr = ref<string>('')
+    testStr.value = isStr('test') ? 'isString' : 'noString'
+    return {
+      testStr,
+    }
+  },
+})
 </script>
 
 <style lang="less">
-@import "./style";
+@import './style/Text.less';
 </style>

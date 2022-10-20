@@ -7,12 +7,12 @@ export default defineConfig({
     emptyOutDir: false,
     minify: true,
     rollupOptions: {
-      external: ['vue', '@zyf/utils'],
+      external: ['vue', '@zyfjs/utils'],
       output: {
         exports: 'named',
         globals: {
           'vue': 'Vue',
-          '@zyf/utils': 'zyfUtils',
+          '@zyfjs/utils': 'zyfjsUtils',
         },
       },
     },
@@ -20,6 +20,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       formats: ['umd', 'cjs', 'es'],
       name: 'zyfui',
+      fileName: 'zyfui',
     },
   },
   plugins: [vue()],

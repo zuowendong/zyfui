@@ -1,2 +1,1 @@
-import './index.less'
-import './test.less'
+import './Text.less'
