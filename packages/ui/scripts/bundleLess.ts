@@ -10,7 +10,7 @@ export const bundleLess = async() => {
   await cpy(`${SRC_DIR}/**/*.less`, LIB_DIR)
 
   // 找到所有的less文件
-  const lessFiles = await fg('**/index.less', {
+  const lessFiles = await fg('**/*.less', {
     cwd: SRC_DIR,
     onlyFiles: true,
   })

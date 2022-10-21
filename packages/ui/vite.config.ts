@@ -10,7 +10,7 @@ export default defineConfig({
     emptyOutDir: false,
     minify: false,
     rollupOptions: {
-      external: ['vue', '@zyf/utils'],
+      external: ['vue', '@zyfjs/utils'],
       input: ['src/index.ts'],
       output: [
         {

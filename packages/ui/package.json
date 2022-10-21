@@ -32,7 +32,7 @@
     "bundleLess": "esno scripts/bundleLess.ts",
     "bundleStyle": "vite build --config vite.config.style.ts",
     "bundle": "vite build --config vite.config.bundle.ts",
-    "build": "run-s build:comp bundleLess bundleStyle bundle"
+    "build": "run-s removeBundle build:comp bundleLess bundleStyle bundle"
   },
   "dependencies": {
     "@zyfjs/utils": "workspace:*",
@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
+    "@types/jsdom": "^20.0.0",
     "@types/less": "^3.0.3",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^16.11.56",
@@ -49,6 +50,7 @@
     "chalk": "^5.1.2",
     "commander": "^9.4.1",
     "cpy": "^9.0.1",
+    "esno": "^0.16.3",
     "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
     "less": "^4.1.3",
