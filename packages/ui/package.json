@@ -27,12 +27,12 @@
     "dist/**.css"
   ],
   "scripts": {
-    "build:test": "esno scripts/compile.ts",
+    "removeBundle": "esno scripts/removeBundle.ts",
     "build:comp": "vite build",
     "bundleLess": "esno scripts/bundleLess.ts",
     "bundleStyle": "vite build --config vite.config.style.ts",
     "bundle": "vite build --config vite.config.bundle.ts",
-    "build": "run-s removeBundle build:comp bundleLess bundleStyle bundle"
+    "build": "run-s removeBundle build:comp bundleLess bundle"
   },
   "dependencies": {
     "@zyfjs/utils": "workspace:*",

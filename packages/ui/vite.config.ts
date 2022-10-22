@@ -10,7 +10,7 @@ export default defineConfig({
     emptyOutDir: false,
     minify: false,
     rollupOptions: {
-      external: ['vue', '@zyfjs/utils'],
+      external: ['vue', /\.less/, '@zyfjs/utils'],
       input: ['src/index.ts'],
       output: [
         {
@@ -34,5 +34,24 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
   },
-  plugins: [vue(), vueJsx(), dts()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    dts(),
+    {
+      name: 'vite-plugin-lessToCss',
+      // https://rollupjs.org/guide/en/#generatebundle
+      generateBundle(config, bundle) {
+        const keys = Object.keys(bundle)
+        for (const key of keys) {
+          const bundler: any = bundle[key]
+          this.emitFile({
+            type: 'asset',
+            fileName: key,
+            source: bundler.code.replace(/\.less/g, '.css'),
+          })
+        }
+      },
+    },
+  ],
 })

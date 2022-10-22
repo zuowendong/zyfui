@@ -1,10 +1,11 @@
 <template>
   <div class="textWrap">
-    <span class="text">{{ testStr }}</span>
+    <span class="text">zyf-text: {{ testStr }}</span>
   </div>
 </template>
 
 <script lang="ts">
+import './style'
 import { defineComponent, ref } from 'vue'
 import { isStr } from '@zyfjs/utils'
 
@@ -19,7 +20,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style lang="less">
-@import './style/Text.less';
-</style>

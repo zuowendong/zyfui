@@ -1,29 +1,23 @@
 <template>
-  <span class="btn">{{ testStr }}</span>
+  <span class="btn">zyf-button: {{ testStr }}</span>
   <button>
     <slot />
   </button>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
+<script lang="ts">
+import './style'
+import { defineComponent, ref } from 'vue'
 import { isStr } from '@zyfjs/utils'
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'default',
+
+export default defineComponent({
+  name: 'ZyfButton',
+  setup() {
+    const testStr = ref<string>('')
+    testStr.value = isStr('test') ? 'isString' : 'noString'
+    return {
+      testStr,
+    }
   },
 })
-
-const testStr = ref('')
-testStr.value = isStr('test') ? 'string' : 'noString'
 </script>
-<script lang="ts">
-export default {
-  name: 'ZyfButton',
-}
-</script>
-
-<style lang="less">
-@import "./style/Button.less";
-</style>
