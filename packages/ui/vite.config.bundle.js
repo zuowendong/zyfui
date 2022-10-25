@@ -17,7 +17,7 @@ export default defineConfig({
       },
     },
     lib: {
-      entry: 'src/index.ts',
+      entry: 'src/index.js',
       formats: ['umd', 'cjs', 'es'],
       name: 'zyfui',
       fileName: 'zyfui',

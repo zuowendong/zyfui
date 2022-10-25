@@ -1,24 +1,22 @@
 import ora from 'ora'
-import type { InlineConfig } from 'vite'
-// import { copyFileSync, pathExistsSync, readFileSync, removeSync, writeFileSync } from 'fs-extra'
 import { build } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { logger } from './tools'
 import { removeDir } from './removeBundle'
 
-export const runTask = async(taskName: string, taskFun: () => any) => {
+export const runTask = async(taskName, taskFun) => {
   const spinner = ora().start(`Compiling ${taskName}...`)
   try {
     await taskFun()
     spinner.succeed(`${taskName} completed!`)
   }
-  catch (e: any) {
+  catch (e) {
     spinner.fail(`${taskName} failed!`)
     logger.error(e.toString())
   }
 }
 
-function getUMDConfig(): InlineConfig {
+function getUMDConfig() {
   return {
     build: {
       outDir: 'dist',
@@ -80,7 +78,7 @@ function getUMDConfig(): InlineConfig {
 // }
 
 export function compileUMD() {
-  return new Promise<void>((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     build(getUMDConfig())
       .then(() => resolve())
       .catch(reject)

@@ -1,10 +1,6 @@
 import { defineConfig } from 'vite'
-import fg from 'fast-glob'
-
-const styleFiles = fg.sync('**/style/index.ts', {
-  cwd: process.cwd(),
-  onlyFiles: true,
-})
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   build: {
@@ -13,8 +9,8 @@ export default defineConfig({
     emptyOutDir: false,
     minify: false,
     rollupOptions: {
-      external: /\.less$/,
-      input: styleFiles,
+      external: ['vue', /\.less/, '@zyfjs/utils'],
+      input: ['src/index.js'],
       output: [
         {
           format: 'es',
@@ -33,27 +29,24 @@ export default defineConfig({
       ],
     },
     lib: {
-      entry: '',
+      entry: 'src/index.js',
       formats: ['es', 'cjs'],
     },
   },
   plugins: [
-    /**
-     * vite插件
-     * 1. 构建包里支持less 导出也支持css 导出
-     * 2. 删除style打包文件，css 放入到js中 https://www.jianshu.com/p/5ec05886bdd9
-     */
+    vue(),
+    vueJsx(),
     {
       name: 'vite-plugin-lessToCss',
       // https://rollupjs.org/guide/en/#generatebundle
       generateBundle(config, bundle) {
         const keys = Object.keys(bundle)
         for (const key of keys) {
-          const bundler: any = bundle[key]
+          const bundler = bundle[key]
           this.emitFile({
             type: 'asset',
-            fileName: key.replace('index.js', 'css.js'),
-            source: bundler.code.replace(/\.less/g, '.css'), // ？ bundler.code的值和源文件值不一样
+            fileName: key,
+            source: bundler.code.replace(/\.less/g, '.css'),
           })
         }
       },
