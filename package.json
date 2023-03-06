@@ -5,11 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "vitepress dev site",
+    "build:site": "vitepress build site",
+    "preview": "vitepress preview site"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "vue": "^3.2.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
@@ -17,15 +23,25 @@
     "@mistjs/tsconfig": "^1.0.0",
     "@mistjs/tsconfig-vue": "^0.0.3",
     "@types/node": "^18.14.6",
+    "@vitejs/plugin-vue-jsx": "^3.0.0",
     "eslint": "^8.35.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "typescript": "^4.9.5",
     "vite": "^4.1.4",
+    "vite-plugin-vitepress-demo": "2.0.0-alpha.8",
+    "vitepress": "1.0.0-alpha.49",
     "vitest": "^0.29.2"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue}": "eslint --fix"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
   }
 }
